@@ -23,15 +23,17 @@ public class IndexController {
         return "index.html";
     }
 
-    @GetMapping("/iamport")
-    public String iamport() {
-        return "pay";
-    }
 
-    @GetMapping("/downloadPage")
-    public String downloadPage() {
-        return "downloadPage";
-    }
+
+//    @GetMapping("/iamport")
+//    public String iamport() {
+//        return "pay";
+//    }
+
+//    @GetMapping("/downloadPage")
+//    public String downloadPage() {
+//        return "downloadPage";
+//    }
 
 //    @GetMapping("/posts/save")
 //    public String postsSave() {
