@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Vignette</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="practice.css">
+
+  <script type="text/javascript">
+    // F12 버튼 방지
+    $(document).ready(function(){
+        $(document).bind('keydown',function(e){
+            if ( e.keyCode == 123 /* F12 */) {
+                e.preventDefault();
+                e.returnValue = false;
+            }
+        });
+    });
+
+    // 우측 클릭 방지
+    document.onmousedown=disableclick;
+    status="Right click is not available.";
+
+    function disableclick(event){
+        if (event.button==2) {
+            alert(status);
+            return false;
+        }
+    }
+  </script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<h1>Vignette</h1>
+
+		<!-- Dropbox -->
+		<div class="drop-zone">
+			<span class="drop-zone__prompt"></span>
+        <p id="watermark">vignette</p>
+		  <input type="file" name="myFile" class="drop-zone__input">
+	  </div>
+  </header>
+
+    <!-- Download button -->
+    <div class="down_btn">
+     <a href="다운로드할 이미지가 들어있는 경로" download><button class = 'bx bxs-down-arrow-circle bx-fade-down'></button></a>
+    </div>
+
+	<!-- Scripts -->
+	<script src="practice.js"></script>
+
+</body>
+
+</html>

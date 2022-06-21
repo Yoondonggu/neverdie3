@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<!--
+	Eventually by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<title>Vignette</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}" />
+	<link rel="shortcut icon" th:href="@{/img/favicon.jpg}">
+
+	<script type="text/javascript">
+    // F12 버튼 방지
+    $(document).ready(function(){
+        $(document).bind('keydown',function(e){
+            if ( e.keyCode == 123 /* F12 */) {
+                e.preventDefault();
+                e.returnValue = false;
+            }
+        });
+    });
+
+    // 우측 클릭 방지
+    document.onmousedown=disableclick;
+    status="Right click is not available.";
+
+    function disableclick(event){
+        if (event.button==2) {
+            alert(status);
+            return false;
+        }
+    }
+</script>
+
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<header id="header">
+		<h1>Vignette</h1>
+
+		<!-- Dropbox -->
+		<div class="drop-zone">
+			<span class="drop-zone__prompt">Drop file here or click to upload</br></br><i class = 'bx bxs-up-arrow-circle bx-fade-down'></i></span>
+			<input type="file" name="myFile" class="drop-zone__input" accept="/img/*">
+		</div>
+
+		<p><i>비네트 효과</i></p><br/>
+		<p>과거 회상이나 꿈꾸는 장면으로의 전환<br/><br/><br/><br/><br/>다음으로 회원가입</p>
+
+	</header>
+
+	<!-- Signup Form -->
+	<!-- <form id="signup-form" method="post" action="#">
+		<input type="email" name="email" id="email" placeholder="Email Address" />
+		<input type="submit" value="Sign Up" />
+	</form> -->
+
+	<!-- Footer -->
+	<footer id="footer">
+		<ul class="icons">
+			<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+			<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li> -->
+			<!-- <li><a href="#a"><img src="images/kakao1.png" height= 40px width= 40px></a></li> -->
+
+			<li><a sec:authorize="isAnonymous()" th:href="@{/oauth2/authorization/kakao}"><img th:src="@{/img/kakao.png}"><span class="label">Kakao</span></a></li>
+			<li><a sec:authorize="isAnonymous()" th:href="@{/oauth2/authorization/google}"><img th:src="@{/img/google.png}"><span class="label">Google</span></a></li>
+			<li><a sec:authorize="isAnonymous()" th:href="@{/oauth2/authorization/naver}"><img th:src="@{/img/naver.png}"><span class="label">Naver</span></a></li>
+
+
+		</ul>
+		<!-- <ul class="copyright">
+			<li>&copy; Untitled.</li> bh,
+			<li>Credits: <a href="http://html5up.net">HTML5 UP</a></li>
+		</ul> -->
+	</footer>
+
+	<!-- Scripts -->
+	<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+</body>
+
+</html>

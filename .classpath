@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="springboot/web/" kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/java/springboot/web"/>
+	<classpathentry kind="src" path="src/test/java"/>
+	<classpathentry kind="lib" path="build/libs/final-project-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="out/artifacts/Final/Final.jar"/>
+	<classpathentry kind="lib" path="out/artifacts/Final2/Final2.jar"/>
+	<classpathentry kind="output" path="build/classes/java/test"/>
+</classpath>

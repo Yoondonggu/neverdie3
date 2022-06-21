@@ -1,0 +1,120 @@
+{{>layout/header}}
+
+<h1>영정영정</h1>
+
+<ol>
+    <div id="ui">
+        {{#userName}}
+            <p><span id="user">{{userName}}</span> 님 안녕하세요!</p><br>
+            <p><a href="#b" class="open2">마이페이지</a></p><br>
+            <p><a href="/logout" class="btn btn-info active" role="button">로그아웃</a></p><br>
+            <p><a href="/iamport" id="iamportPayment" role="button">결제테스트</a></p>
+        {{/userName}}
+        <br>
+        {{^userName}}
+            <p><a href="#a" class="open1">로그인</a></p><br>
+        {{/userName}}
+
+
+    </div>
+
+    <!-- 로그인 모달 -->
+    <div class="popup1">
+        <h2>로그인</h2>
+        <div class="con">
+            <table class="type1">
+                <caption>
+                    <details class="hide">
+                        <summary>로그인 폼</summary>
+                        <div>kakao, naver, google</div>
+                    </details>
+                </caption>
+                <colgroup>
+                    <col style="width: 111px">
+
+                    </col>
+                </colgroup>
+                <tbody>
+                    <a href="/oauth2/authorization/kakao" role="button"><img src="/img/kakao1.png" height=40px width=40px></a>
+                    <a href="/oauth2/authorization/google" role="button"><img src="/img/google1.png" height=40px width=40px></a>
+                    <a href="/oauth2/authorization/naver" role="button"><img src="/img/naver.png" height=40px width=40px></a>
+                </tbody>
+            </table>
+        </div>
+        <div class="txt_center1">
+<!--             회원가입 버튼onclick? -->
+<!--            <a href="#a" class="btn_type1">로그인</a>-->
+        </div>
+            <a href="#a" class="close1">닫기</a>
+    </div>
+    <!-- <div class = "dim"></div> -->
+    <!-- 로그인 모달 -->
+
+    <!-- 마이페이지 모달 -->
+    <div class="popup2">
+        <h2>마이페이지</h2>
+        <div class="con">
+            <!-- <table class = "type1"> -->
+            <caption>
+                <details class="hide">
+                    <summary>사진첩</summary>
+                    <!-- <div>아이디, 비밀번호</div> -->
+                </details>
+            </caption>
+            <!-- <colgroup>
+              <col style = "width: 111px">
+              </col>
+            </colgroup> -->
+            <tbody>
+
+            <div class="slide_wrapper">
+                <ul class="mypage_slide">
+                    <!-- slides -->
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                    <li><img src="/img/sample.png" alt=""></li>
+                </ul>
+            </div>
+            <p class="controls">
+                <span class="prev">prev</span>
+                <span class="download">download</span>
+                <span class="next">next</span>
+            </p>
+
+            </tbody>
+            <!-- </table> -->
+        </div>
+        <div class="txt_center2">
+            <!-- <a href="#b" class = "btn_type2">다운</a> -->
+        </div>
+        <a href="#b" class="close2">닫기</a>
+    </div>
+</ol>
+
+<!-- 이미지 slider -->
+<div class="slider">
+    <input type="radio" name="slide" id="grandma1" checked>
+    <input type="radio" name="slide" id="grandma2">
+    <input type="radio" name="slide" id="grandpa1">
+    <input type="radio" name="slide" id="grandpa2">
+    <ul id="imgholder" class="imgs">
+        <li><img src="/img/grandma1.jpg"></li>
+        <li><img src="/img/grandma2.jpg"></li>
+        <li><img src="/img/grandpa1.jpg"></li>
+        <li><img src="/img/grandpa2.jpg"></li>
+    </ul>
+    <div class="bullets">
+        <label for="grandma1">&nbsp;</label>
+        <label for="grandma2">&nbsp;</label>
+        <label for="grandpa1">&nbsp;</label>
+        <label for="grandpa2">&nbsp;</label>
+    </div>
+</div>
+
+
+{{>layout/footer}}

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Vignette</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css"/>
+    <link rel="shortcut icon" href="/images/favicon.jpg">
+
+    <script type="text/javascript">
+        // F12 버튼 방지
+        $(document).ready(function () {
+            $(document).bind('keydown', function (e) {
+                if (e.keyCode == 123 /* F12 */) {
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
+            });
+        });
+
+        // 우측 클릭 방지
+        document.onmousedown = disableclick;
+        status = "Right click is not available.";
+
+        function disableclick(event) {
+            if (event.button == 2) {
+                alert(status);
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body class="is-preload">
+
+<!-- header,footer 분리 방지 -->
+<div id=shield>
+
+    <!-- Header -->
+    <header id="header">
+
+        <!-- light vignette -->
+        <h1>
+            <span id=blink>Vignette</span></br>
+            <span id=blink class="light">Vignette</span></br>
+            <span id=blink>Vignette</span>
+        </h1>
+
+        <th:block sec:authorize="isAuthenticated()">
+            <!-- Dropbox -->
+            <div class="drop-zone">
+            <span class="drop-zone__prompt">Drop file here or click to upload</br></br><i
+                    class='bx bxs-up-arrow-circle bx-fade-down'></i></span>
+                <input type="file" name="myFile" class="drop-zone__input" accept="image/*">
+            </div>
+
+            <!-- submit버튼 -->
+            <button id=btn class="btn third" type=button>Submit</button>
+        </th:block>
+
+        <!-- 페이지 전환 -->
+        <!-- <a href="다운로드페이지 연습용\practice.html" target="_blank">submit</a>
+                <button type="button" onclick="location.href='다운로드페이지 연습용\practice.html' ">submit</button>
+                <meta http-equiv="refresh" content="0; URL='다운로드페이지 연습용\practice.html'"> -->
+
+        <p><i>비네트 효과</i></b><br/>
+        <p>과거 회상이나 꿈꾸는 장면으로의 전환<br/>다음으로 회원가입</p></br>
+    </header>
+
+    <!-- Footer -->
+
+    <footer id="footer">
+        <!-- 로그아웃 상태 -->
+        <th:block sec:authorize="isAnonymous()">
+            <ul class="icons">
+                <li><a href="/oauth2/authorization/kakao"><img src="/images/kakao.png"><span class="label">Kakao</span></a>
+                </li>
+                <li><a href="/oauth2/authorization/google"><img src="/images/google.png"><span
+                        class="label">Google</span></a></li>
+                <li><a href="/oauth2/authorization/naver"><img src="/images/naver.png"><span class="label">Naver</span></a>
+                </li>
+            </ul>
+        </th:block>
+
+        <!-- 로그인 상태 -->
+        <th:block sec:authorize="isAuthenticated()">
+            <h2>
+                안녕하세요 <span th:text="${userName}"></span> 님<br>
+                <button onclick="location.href='/logout'">로그아웃</button>
+            </h2>
+        </th:block>
+
+
+    </footer>
+</div>
+
+<!-- Scripts -->
+<script src="/js/main.js"></script>
+</body>
+</html>
